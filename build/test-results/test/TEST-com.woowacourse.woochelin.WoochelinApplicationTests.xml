@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.woowacourse.woochelin.WoochelinApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-21T09:38:11.586Z" hostname="hyeonseongbug.local" time="0.285">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.woowacourse.woochelin.WoochelinApplicationTests" time="0.285"/>
+  <system-out><![CDATA[18:38:08.232 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.woowacourse.woochelin.WoochelinApplicationTests]: WoochelinApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:38:08.288 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.woowacourse.woochelin.WoochelinApplication for test class com.woowacourse.woochelin.WoochelinApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.14)
+
+2026-05-21T18:38:08.509+09:00  INFO 95009 --- [woochelin] [    Test worker] c.w.woochelin.WoochelinApplicationTests  : Starting WoochelinApplicationTests using Java 21.0.8 with PID 95009 (started by lhs in /Users/lhs/Desktop/woochelin)
+2026-05-21T18:38:08.509+09:00  INFO 95009 --- [woochelin] [    Test worker] c.w.woochelin.WoochelinApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2026-05-21T18:38:08.906+09:00  INFO 95009 --- [woochelin] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-21T18:38:08.944+09:00  INFO 95009 --- [woochelin] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 6 JPA repository interfaces.
+2026-05-21T18:38:09.218+09:00  INFO 95009 --- [woochelin] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-21T18:38:09.262+09:00  INFO 95009 --- [woochelin] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.49.Final
+2026-05-21T18:38:09.281+09:00  INFO 95009 --- [woochelin] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-21T18:38:09.435+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-21T18:38:09.454+09:00  INFO 95009 --- [woochelin] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-21T18:38:09.546+09:00  INFO 95009 --- [woochelin] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:a4ec6766-9c43-44ff-9631-3135983312a0 user=SA
+2026-05-21T18:38:09.547+09:00  INFO 95009 --- [woochelin] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-21T18:38:09.580+09:00  INFO 95009 --- [woochelin] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-21T18:38:10.109+09:00  INFO 95009 --- [woochelin] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-21T18:38:10.157+09:00  INFO 95009 --- [woochelin] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-21T18:38:10.322+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-21T18:38:11.342+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:a4ec6766-9c43-44ff-9631-3135983312a0'
+2026-05-21T18:38:11.375+09:00  INFO 95009 --- [woochelin] [    Test worker] c.w.woochelin.WoochelinApplicationTests  : Started WoochelinApplicationTests in 3.01 seconds (process running for 3.626)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/Users/lhs/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.8/f09415827a71be7ed621c7bd02550678f28bc81c/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

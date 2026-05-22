@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.woowacourse.woochelin.coach.CoachServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-21T09:38:13.434Z" hostname="hyeonseongbug.local" time="0.145">
+  <properties/>
+  <testcase name="코치 리뷰에는 코치 태그만 사용할 수 있다" classname="com.woowacourse.woochelin.coach.CoachServiceTest" time="0.134"/>
+  <testcase name="코치 리뷰 작성 시 닉네임 기본값과 해싱된 비밀번호를 저장한다" classname="com.woowacourse.woochelin.coach.CoachServiceTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

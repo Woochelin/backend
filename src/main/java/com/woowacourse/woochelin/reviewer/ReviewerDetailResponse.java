@@ -1,0 +1,17 @@
+package com.woowacourse.woochelin.reviewer;
+
+import com.woowacourse.woochelin.common.Part;
+import com.woowacourse.woochelin.common.TagStatResponse;
+import java.util.List;
+
+public record ReviewerDetailResponse(
+        Long id,
+        String name,
+        Part part,
+        String profileImageUrl,
+        String slackUrl,
+        double averageRating,
+        List<TagStatResponse> topTags,
+        List<ReviewerReviewResponse> reviews
+) {
+}

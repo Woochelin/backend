@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - WoochelinApiIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>WoochelinApiIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.woowacourse.woochelin.api.html">com.woowacourse.woochelin.api</a> &gt; WoochelinApiIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">8</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.712s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="tab-container">
+<ul class="tabLinks">
+<li>
+<a href="#">Tests</a>
+</li>
+<li>
+<a href="#">Standard output</a>
+</li>
+</ul>
+<div class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">Gemini API 키가 없으면 챗봇 API는 명확한 503 응답을 반환한다</td>
+<td class="success">chatbotReturnsServiceUnavailableWithoutApiKey()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">코치 리뷰 작성 시 상위 태그는 3개만 노출되고 삭제 후 상세 조회에서 제외된다</td>
+<td class="success">createAndSoftDeleteCoachReview()</td>
+<td class="success">0.186s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">상세 조회는 조회 로그를 남기고 챗봇 급상승 및 홈 랭킹에 반영된다</td>
+<td class="success">detailViewCreatesRankingLog()</td>
+<td class="success">0.092s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">초기 seed 데이터로 코치 태그와 코치 목록을 조회한다</td>
+<td class="success">getSeededTagsAndCoaches()</td>
+<td class="success">0.019s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">별점 범위를 벗어난 리뷰 요청은 검증 단계에서 거절한다</td>
+<td class="success">rejectInvalidRating()</td>
+<td class="success">0.148s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">리뷰어 리뷰에는 리뷰어 태그만 허용한다</td>
+<td class="success">reviewerReviewRejectsCoachTag()</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">통합 검색은 코치와 리뷰어를 함께 반환한다</td>
+<td class="success">searchAcrossCoachAndReviewer()</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">코치 리뷰는 비밀번호 검증 후 수정할 수 있다</td>
+<td class="success">updateCoachReview()</td>
+<td class="success">0.225s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2026-05-21T18:38:11.877+09:00  INFO 95009 --- [woochelin] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.woowacourse.woochelin.api.WoochelinApiIntegrationTest]: WoochelinApiIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-05-21T18:38:11.902+09:00  INFO 95009 --- [woochelin] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.woowacourse.woochelin.WoochelinApplication for test class com.woowacourse.woochelin.api.WoochelinApiIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.14)
+
+2026-05-21T18:38:11.922+09:00  INFO 95009 --- [woochelin] [    Test worker] c.w.w.api.WoochelinApiIntegrationTest    : Starting WoochelinApiIntegrationTest using Java 21.0.8 with PID 95009 (started by lhs in /Users/lhs/Desktop/woochelin)
+2026-05-21T18:38:11.922+09:00  INFO 95009 --- [woochelin] [    Test worker] c.w.w.api.WoochelinApiIntegrationTest    : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2026-05-21T18:38:12.011+09:00  INFO 95009 --- [woochelin] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-21T18:38:12.019+09:00  INFO 95009 --- [woochelin] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 6 JPA repository interfaces.
+2026-05-21T18:38:12.066+09:00  INFO 95009 --- [woochelin] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-21T18:38:12.067+09:00  INFO 95009 --- [woochelin] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-21T18:38:12.070+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-21T18:38:12.071+09:00  INFO 95009 --- [woochelin] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-05-21T18:38:12.072+09:00  INFO 95009 --- [woochelin] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:3decd670-73e5-4b38-9c21-43f2cacf37e1 user=SA
+2026-05-21T18:38:12.072+09:00  INFO 95009 --- [woochelin] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-05-21T18:38:12.073+09:00  INFO 95009 --- [woochelin] [    Test worker] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-21T18:38:12.106+09:00  INFO 95009 --- [woochelin] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-21T18:38:12.116+09:00  INFO 95009 --- [woochelin] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-21T18:38:12.211+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:3decd670-73e5-4b38-9c21-43f2cacf37e1'
+2026-05-21T18:38:12.226+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-05-21T18:38:12.226+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-05-21T18:38:12.226+09:00  INFO 95009 --- [woochelin] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-05-21T18:38:12.232+09:00  INFO 95009 --- [woochelin] [    Test worker] c.w.w.api.WoochelinApiIntegrationTest    : Started WoochelinApiIntegrationTest in 0.326 seconds (process running for 4.484)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="https://www.gradle.org">Gradle 8.14.4</a> at 2026. 5. 21. 오후 6:38:14</p>
+</div>
+</div>
+</body>
+</html>
