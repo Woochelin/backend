@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.woowacourse.woochelin.common.PartTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-05-22T06:22:37.914Z" hostname="hyeonseongbug.local" time="0.003">
-  <properties/>
-  <testcase name="지원하지 않는 파트는 명시적으로 거절한다" classname="com.woowacourse.woochelin.common.PartTest" time="0.001"/>
-  <testcase name="비어 있는 파트 필터는 전체 조회를 의미한다" classname="com.woowacourse.woochelin.common.PartTest" time="0.0"/>
-  <testcase name="파트는 API, 파일명, 한글 별칭을 표준 enum으로 변환한다" classname="com.woowacourse.woochelin.common.PartTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
