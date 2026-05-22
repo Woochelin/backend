@@ -1,5 +1,7 @@
 package com.woowacourse.woochelin.coach;
 
+import com.woowacourse.woochelin.common.ActivityLog;
+import com.woowacourse.woochelin.common.ActivityLogRepository;
 import com.woowacourse.woochelin.common.DeleteReviewRequest;
 import com.woowacourse.woochelin.common.Part;
 import com.woowacourse.woochelin.common.ReviewRequest;
@@ -22,11 +24,13 @@ import org.springframework.stereotype.Service;
 public class CoachService {
 
     private static final int TOP_TAG_LIMIT = 3;
+    private static final String COACH_DOT_COLOR = "#3DBBBD";
 
     private final CoachRepository coachRepository;
     private final CoachReviewRepository coachReviewRepository;
     private final TagRepository tagRepository;
     private final SearchLogRepository searchLogRepository;
+    private final ActivityLogRepository activityLogRepository;
     private final PasswordEncoder passwordEncoder;
 
     public CoachService(
@@ -34,12 +38,14 @@ public class CoachService {
             CoachReviewRepository coachReviewRepository,
             TagRepository tagRepository,
             SearchLogRepository searchLogRepository,
+            ActivityLogRepository activityLogRepository,
             PasswordEncoder passwordEncoder
     ) {
         this.coachRepository = coachRepository;
         this.coachReviewRepository = coachReviewRepository;
         this.tagRepository = tagRepository;
         this.searchLogRepository = searchLogRepository;
+        this.activityLogRepository = activityLogRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -83,7 +89,24 @@ public class CoachService {
                 request.content(),
                 tags
         );
-        return CoachReviewResponse.from(coachReviewRepository.save(review));
+        CoachReview saved = coachReviewRepository.save(review);
+        activityLogRepository.save(buildActivityLog(saved, coach));
+        return CoachReviewResponse.from(saved);
+    }
+
+    private ActivityLog buildActivityLog(CoachReview review, Coach coach) {
+        String stars = "★".repeat(review.getRating()) + "☆".repeat(5 - review.getRating());
+        return new ActivityLog(
+                "review",
+                COACH_DOT_COLOR,
+                review.getNickname(),
+                "님이",
+                coach.getName() + " 코치",
+                "에게 리뷰를 남겼습니다",
+                stars,
+                "rating",
+                null
+        );
     }
 
     @Transactional

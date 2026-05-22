@@ -6,6 +6,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.woowacourse.woochelin.common.ActivityLogRepository;
 import com.woowacourse.woochelin.common.Part;
 import com.woowacourse.woochelin.common.ReviewRequest;
 import com.woowacourse.woochelin.common.SearchLogRepository;
@@ -38,6 +39,9 @@ class CoachServiceTest {
 
     @Mock
     private SearchLogRepository searchLogRepository;
+
+    @Mock
+    private ActivityLogRepository activityLogRepository;
 
     @Mock
     private PasswordEncoder passwordEncoder;

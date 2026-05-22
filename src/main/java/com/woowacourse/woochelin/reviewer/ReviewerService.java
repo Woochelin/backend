@@ -1,5 +1,7 @@
 package com.woowacourse.woochelin.reviewer;
 
+import com.woowacourse.woochelin.common.ActivityLog;
+import com.woowacourse.woochelin.common.ActivityLogRepository;
 import com.woowacourse.woochelin.common.DeleteReviewRequest;
 import com.woowacourse.woochelin.common.Part;
 import com.woowacourse.woochelin.common.ReviewRequest;
@@ -22,11 +24,13 @@ import org.springframework.stereotype.Service;
 public class ReviewerService {
 
     private static final int TOP_TAG_LIMIT = 3;
+    private static final String REVIEWER_DOT_COLOR = "#FF8A65";
 
     private final ReviewerRepository reviewerRepository;
     private final ReviewerReviewRepository reviewerReviewRepository;
     private final TagRepository tagRepository;
     private final SearchLogRepository searchLogRepository;
+    private final ActivityLogRepository activityLogRepository;
     private final PasswordEncoder passwordEncoder;
 
     public ReviewerService(
@@ -34,12 +38,14 @@ public class ReviewerService {
             ReviewerReviewRepository reviewerReviewRepository,
             TagRepository tagRepository,
             SearchLogRepository searchLogRepository,
+            ActivityLogRepository activityLogRepository,
             PasswordEncoder passwordEncoder
     ) {
         this.reviewerRepository = reviewerRepository;
         this.reviewerReviewRepository = reviewerReviewRepository;
         this.tagRepository = tagRepository;
         this.searchLogRepository = searchLogRepository;
+        this.activityLogRepository = activityLogRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -81,7 +87,24 @@ public class ReviewerService {
                 request.content(),
                 tags
         );
-        return ReviewerReviewResponse.from(reviewerReviewRepository.save(review));
+        ReviewerReview saved = reviewerReviewRepository.save(review);
+        activityLogRepository.save(buildActivityLog(saved, reviewer));
+        return ReviewerReviewResponse.from(saved);
+    }
+
+    private ActivityLog buildActivityLog(ReviewerReview review, Reviewer reviewer) {
+        String stars = "★".repeat(review.getRating()) + "☆".repeat(5 - review.getRating());
+        return new ActivityLog(
+                "review",
+                REVIEWER_DOT_COLOR,
+                review.getNickname(),
+                "님이",
+                reviewer.getName() + " 리뷰어",
+                "에게 리뷰를 남겼습니다",
+                stars,
+                "rating",
+                null
+        );
     }
 
     @Transactional

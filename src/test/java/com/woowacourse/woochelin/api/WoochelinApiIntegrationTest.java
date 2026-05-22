@@ -246,6 +246,37 @@ class WoochelinApiIntegrationTest {
     }
 
     @Test
+    @DisplayName("리뷰 작성 시 활동 로그가 저장되어 /api/v1/activity-logs 에서 조회된다")
+    void activityLogCreatedOnReviewPost() throws Exception {
+        Coach gump = coachRepository.findByBotId("gump").orElseThrow();
+        List<Long> tagIds = tagRepository.findByTargetTypeOrderById(TargetType.COACH).stream()
+                .limit(1)
+                .map(Tag::getId)
+                .toList();
+
+        mockMvc.perform(post("/api/v1/coaches/{coachId}/reviews", gump.getId())
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "nickname": "체체",
+                                  "password": "1234",
+                                  "rating": 5,
+                                  "content": "최고예요",
+                                  "tagIds": [%d]
+                                }
+                                """.formatted(tagIds.getFirst())))
+                .andExpect(status().isCreated());
+
+        mockMvc.perform(get("/api/v1/activity-logs"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].actor").value("체체"))
+                .andExpect(jsonPath("$[0].target").value("검프 코치"))
+                .andExpect(jsonPath("$[0].type").value("review"))
+                .andExpect(jsonPath("$[0].dot").value("#3DBBBD"))
+                .andExpect(jsonPath("$[0].extra").value("★★★★★"));
+    }
+
+    @Test
     @DisplayName("별점 범위를 벗어난 리뷰 요청은 검증 단계에서 거절한다")
     void rejectInvalidRating() throws Exception {
         Coach gump = coachRepository.findByBotId("gump").orElseThrow();
