@@ -60,6 +60,7 @@ public class ReviewerService {
                 reviewer.getPart(),
                 reviewer.getProfileImageUrl(),
                 reviewer.getSlackUrl(),
+                reviewer.getStyle(),
                 round(reviewerReviewRepository.averageRating(reviewerId)),
                 topTags(reviewerId),
                 reviewerReviewRepository.findByReviewerIdAndDeletedAtIsNullOrderByCreatedAtDesc(reviewerId).stream()
@@ -121,6 +122,7 @@ public class ReviewerService {
                 reviewer.getPart(),
                 reviewer.getProfileImageUrl(),
                 reviewer.getSlackUrl(),
+                reviewer.getStyle(),
                 round(reviewerReviewRepository.averageRating(reviewer.getId())),
                 topTags(reviewer.getId())
         );

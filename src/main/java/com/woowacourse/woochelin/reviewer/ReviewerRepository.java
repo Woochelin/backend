@@ -12,5 +12,7 @@ public interface ReviewerRepository extends JpaRepository<Reviewer, Long> {
 
     List<Reviewer> findByPartAndNameContainingIgnoreCase(Part part, String keyword);
 
+    java.util.Optional<Reviewer> findByName(String name);
+
     boolean existsByName(String name);
 }

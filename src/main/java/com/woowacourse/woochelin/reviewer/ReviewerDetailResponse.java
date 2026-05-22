@@ -10,6 +10,7 @@ public record ReviewerDetailResponse(
         Part part,
         String profileImageUrl,
         String slackUrl,
+        String style,
         double averageRating,
         List<TagStatResponse> topTags,
         List<ReviewerReviewResponse> reviews

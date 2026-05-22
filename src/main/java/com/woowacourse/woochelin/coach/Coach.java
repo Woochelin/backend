@@ -36,6 +36,9 @@ public class Coach {
     @Column(nullable = false, unique = true)
     private String botId;
 
+    @Column(nullable = false)
+    private String botDescription;
+
     @Lob
     @Column(nullable = false)
     private String personaPrompt;
@@ -50,11 +53,24 @@ public class Coach {
     }
 
     public Coach(String name, Part part, String profileImageUrl, String slackUrl, String botId, String personaPrompt) {
+        this(name, part, profileImageUrl, slackUrl, botId, "따뜻한 위로와 명언", personaPrompt);
+    }
+
+    public Coach(
+            String name,
+            Part part,
+            String profileImageUrl,
+            String slackUrl,
+            String botId,
+            String botDescription,
+            String personaPrompt
+    ) {
         this.name = name;
         this.part = part;
         this.profileImageUrl = profileImageUrl;
         this.slackUrl = slackUrl;
         this.botId = botId;
+        this.botDescription = botDescription;
         this.personaPrompt = personaPrompt;
     }
 
@@ -92,6 +108,10 @@ public class Coach {
 
     public String getBotId() {
         return botId;
+    }
+
+    public String getBotDescription() {
+        return botDescription;
     }
 
     public String getPersonaPrompt() {

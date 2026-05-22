@@ -10,6 +10,8 @@ public record SearchResultResponse(
         String profileImageUrl,
         String slackUrl,
         String botId,
+        String botDescription,
+        String style,
         double averageRating,
         List<TagStatResponse> topTags
 ) {

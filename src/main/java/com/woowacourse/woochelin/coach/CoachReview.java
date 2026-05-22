@@ -57,17 +57,32 @@ public class CoachReview {
     }
 
     public CoachReview(Coach coach, String nickname, String password, int rating, String content, Set<Tag> tags) {
+        this(coach, nickname, password, rating, content, tags, null);
+    }
+
+    public CoachReview(
+            Coach coach,
+            String nickname,
+            String password,
+            int rating,
+            String content,
+            Set<Tag> tags,
+            LocalDateTime createdAt
+    ) {
         this.coach = coach;
         this.nickname = nickname;
         this.password = password;
         this.rating = rating;
         this.content = content;
         this.tags = tags;
+        this.createdAt = createdAt;
     }
 
     @PrePersist
     void prePersist() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 
     public void delete() {

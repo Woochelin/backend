@@ -57,17 +57,32 @@ public class ReviewerReview {
     }
 
     public ReviewerReview(Reviewer reviewer, String nickname, String password, int rating, String content, Set<Tag> tags) {
+        this(reviewer, nickname, password, rating, content, tags, null);
+    }
+
+    public ReviewerReview(
+            Reviewer reviewer,
+            String nickname,
+            String password,
+            int rating,
+            String content,
+            Set<Tag> tags,
+            LocalDateTime createdAt
+    ) {
         this.reviewer = reviewer;
         this.nickname = nickname;
         this.password = password;
         this.rating = rating;
         this.content = content;
         this.tags = tags;
+        this.createdAt = createdAt;
     }
 
     @PrePersist
     void prePersist() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 
     public void delete() {

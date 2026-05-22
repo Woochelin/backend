@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.woowacourse.woochelin.coach.CoachServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-22T05:00:40.448Z" hostname="hyeonseongbug.local" time="0.138">
+<testsuite name="com.woowacourse.woochelin.coach.CoachServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-22T06:22:37.758Z" hostname="hyeonseongbug.local" time="0.155">
   <properties/>
-  <testcase name="코치 리뷰에는 코치 태그만 사용할 수 있다" classname="com.woowacourse.woochelin.coach.CoachServiceTest" time="0.127"/>
-  <testcase name="코치 리뷰 작성 시 닉네임 기본값과 해싱된 비밀번호를 저장한다" classname="com.woowacourse.woochelin.coach.CoachServiceTest" time="0.011"/>
+  <testcase name="코치 리뷰에는 코치 태그만 사용할 수 있다" classname="com.woowacourse.woochelin.coach.CoachServiceTest" time="0.142"/>
+  <testcase name="코치 리뷰 작성 시 닉네임 기본값과 해싱된 비밀번호를 저장한다" classname="com.woowacourse.woochelin.coach.CoachServiceTest" time="0.013"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -33,6 +33,9 @@ public class Reviewer {
     private String slackUrl;
 
     @Column(nullable = false)
+    private String style;
+
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
     @Column(nullable = false)
@@ -42,10 +45,15 @@ public class Reviewer {
     }
 
     public Reviewer(String name, Part part, String profileImageUrl, String slackUrl) {
+        this(name, part, profileImageUrl, slackUrl, "따뜻함");
+    }
+
+    public Reviewer(String name, Part part, String profileImageUrl, String slackUrl, String style) {
         this.name = name;
         this.part = part;
         this.profileImageUrl = profileImageUrl;
         this.slackUrl = slackUrl;
+        this.style = style;
     }
 
     @PrePersist
@@ -78,5 +86,9 @@ public class Reviewer {
 
     public String getSlackUrl() {
         return slackUrl;
+    }
+
+    public String getStyle() {
+        return style;
     }
 }

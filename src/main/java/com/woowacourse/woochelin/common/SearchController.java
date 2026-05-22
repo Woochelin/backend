@@ -1,5 +1,6 @@
 package com.woowacourse.woochelin.common;
 
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,5 +17,10 @@ public class SearchController {
     @GetMapping("/api/v1/search")
     public SearchResponse search(@RequestParam(required = false) String keyword) {
         return searchService.search(keyword);
+    }
+
+    @GetMapping("/api/v1/search/trending")
+    public List<TrendingSearchTermResponse> trending() {
+        return searchService.trending();
     }
 }

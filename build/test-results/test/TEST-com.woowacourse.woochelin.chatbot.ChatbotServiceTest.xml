@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.woowacourse.woochelin.chatbot.ChatbotServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-22T05:00:40.148Z" hostname="hyeonseongbug.local" time="0.296">
+<testsuite name="com.woowacourse.woochelin.chatbot.ChatbotServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-05-22T06:22:37.396Z" hostname="hyeonseongbug.local" time="0.359">
   <properties/>
-  <testcase name="botId에 맞는 코치 페르소나로 Gemini 응답을 생성한다" classname="com.woowacourse.woochelin.chatbot.ChatbotServiceTest" time="0.29"/>
+  <testcase name="botId에 맞는 코치 페르소나로 Gemini 응답을 생성한다" classname="com.woowacourse.woochelin.chatbot.ChatbotServiceTest" time="0.352"/>
   <testcase name="존재하지 않는 botId는 404 도메인 예외로 거절한다" classname="com.woowacourse.woochelin.chatbot.ChatbotServiceTest" time="0.005"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

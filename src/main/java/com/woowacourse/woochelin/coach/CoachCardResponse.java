@@ -11,6 +11,7 @@ public record CoachCardResponse(
         String profileImageUrl,
         String slackUrl,
         String botId,
+        String botDescription,
         double averageRating,
         List<TagStatResponse> topTags
 ) {

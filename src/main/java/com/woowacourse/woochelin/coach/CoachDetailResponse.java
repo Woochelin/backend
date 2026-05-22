@@ -11,6 +11,7 @@ public record CoachDetailResponse(
         String profileImageUrl,
         String slackUrl,
         String botId,
+        String botDescription,
         double averageRating,
         List<TagStatResponse> topTags,
         List<CoachReviewResponse> reviews

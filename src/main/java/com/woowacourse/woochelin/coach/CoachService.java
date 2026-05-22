@@ -62,6 +62,7 @@ public class CoachService {
                 coach.getProfileImageUrl(),
                 coach.getSlackUrl(),
                 coach.getBotId(),
+                coach.getBotDescription(),
                 round(coachReviewRepository.averageRating(coachId)),
                 topTags(coachId),
                 coachReviewRepository.findByCoachIdAndDeletedAtIsNullOrderByCreatedAtDesc(coachId).stream()
@@ -124,6 +125,7 @@ public class CoachService {
                 coach.getProfileImageUrl(),
                 coach.getSlackUrl(),
                 coach.getBotId(),
+                coach.getBotDescription(),
                 round(coachReviewRepository.averageRating(coach.getId())),
                 topTags(coach.getId())
         );

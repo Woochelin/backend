@@ -33,13 +33,20 @@ public class SearchLog {
     }
 
     public SearchLog(String keyword, TargetType targetType, Long targetId) {
+        this(keyword, targetType, targetId, null);
+    }
+
+    public SearchLog(String keyword, TargetType targetType, Long targetId, LocalDateTime createdAt) {
         this.keyword = keyword;
         this.targetType = targetType;
         this.targetId = targetId;
+        this.createdAt = createdAt;
     }
 
     @PrePersist
     void prePersist() {
-        createdAt = LocalDateTime.now();
+        if (createdAt == null) {
+            createdAt = LocalDateTime.now();
+        }
     }
 }
