@@ -26,7 +26,7 @@ public class GeminiClient {
         this.model = model;
     }
 
-    public String generate(String systemPrompt, String message) {
+    public String generate(String systemPrompt, List<ChatMessage> conversation) {
         if (apiKey == null || apiKey.isBlank()) {
             throw new ExternalApiException("Gemini API 키가 설정되어 있지 않습니다. gemini.api-key를 설정해 주세요.");
         }
@@ -34,7 +34,7 @@ public class GeminiClient {
             GeminiResponse response = restClient.post()
                     .uri(BASE_URL + "?key={apiKey}", model, apiKey)
                     .contentType(MediaType.APPLICATION_JSON)
-                    .body(GeminiRequest.of(systemPrompt, message))
+                    .body(GeminiRequest.of(systemPrompt, conversation))
                     .retrieve()
                     .body(GeminiResponse.class);
             String reply = extractText(response);
@@ -66,12 +66,13 @@ public class GeminiClient {
 
     public record GeminiRequest(Content systemInstruction, List<Content> contents, GenerationConfig generationConfig) {
 
-        static GeminiRequest of(String systemPrompt, String message) {
-            return new GeminiRequest(
-                    Content.system(systemPrompt),
-                    List.of(Content.user(message)),
-                    new GenerationConfig(0.8)
-            );
+        static GeminiRequest of(String systemPrompt, List<ChatMessage> conversation) {
+            List<Content> contents = conversation.stream()
+                    .map(message -> message.sender() == ChatMessage.Sender.USER
+                            ? Content.user(message.text())
+                            : Content.model(message.text()))
+                    .toList();
+            return new GeminiRequest(Content.system(systemPrompt), contents, new GenerationConfig(0.8));
         }
     }
 
@@ -83,6 +84,10 @@ public class GeminiClient {
 
         static Content user(String text) {
             return new Content("user", List.of(new Part(text)));
+        }
+
+        static Content model(String text) {
+            return new Content("model", List.of(new Part(text)));
         }
     }
 

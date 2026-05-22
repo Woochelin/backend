@@ -235,7 +235,9 @@ class WoochelinApiIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
+                                  "sessionId": "11111111-1111-1111-1111-111111111111",
                                   "botId": "gump",
+                                  "crewName": "체체",
                                   "message": "코딩이 어려워요"
                                 }
                                 """))
